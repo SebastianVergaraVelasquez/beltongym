@@ -5,10 +5,12 @@ import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.sebastianvv.beltongym.domain.repositories.SupplierPurchaseRepository;
 import com.sebastianvv.beltongym.persistence.entities.SupplierPurchase;
 
+@Service
 public class SupplierPurchaseImpl implements ISupplierPurchase {
 
     @Autowired

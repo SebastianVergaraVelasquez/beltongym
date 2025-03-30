@@ -5,10 +5,12 @@ import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.sebastianvv.beltongym.domain.repositories.SupplierRepository;
 import com.sebastianvv.beltongym.persistence.entities.Supplier;
 
+@Service
 public class SupplierImpl implements ISupplier {
 
     @Autowired
