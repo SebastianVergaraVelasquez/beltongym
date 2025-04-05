@@ -28,7 +28,7 @@ public class PurchaseDetailImpl implements IPurchaseDetail{
 
     @Override
     public List<PurchaseDetail> findAll() {
-        return (List<PurchaseDetail>) purchaseDetailRepository.findAll();
+        return (List<PurchaseDetail>) purchaseDetailRepository.findAllWithPurchaseAndProduct();
     }
 
     @Override

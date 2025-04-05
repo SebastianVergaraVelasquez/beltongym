@@ -28,7 +28,7 @@ public class UserImpl implements IUser {
 
     @Override
     public List<User> findAll() {
-        return (List<User>) userRepository.findAll();
+        return (List<User>) userRepository.findAllWithUserType();
     }
 
     @Override

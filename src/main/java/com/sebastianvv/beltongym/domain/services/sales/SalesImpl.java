@@ -28,7 +28,7 @@ public class SalesImpl implements ISales{
 
     @Override
     public List<Sales> findAll() {
-        return (List<Sales>) salesRepository.findAll();
+        return (List<Sales>) salesRepository.findAllWithUser();
     }
 
     @Override

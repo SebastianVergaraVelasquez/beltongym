@@ -28,7 +28,7 @@ public class AttendanceImpl implements IAttendance {
 
     @Override
     public List<Attendance> findAll() {
-        return (List<Attendance>) attendanceRepository.findAll();
+        return (List<Attendance>) attendanceRepository.findAllWithUser();
     }
 
     @Override

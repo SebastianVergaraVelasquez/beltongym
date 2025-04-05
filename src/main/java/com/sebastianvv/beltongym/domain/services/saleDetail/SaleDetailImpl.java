@@ -28,7 +28,7 @@ public class SaleDetailImpl implements ISaleDetail {
 
     @Override
     public List<SaleDetail> findAll() {
-        return (List<SaleDetail>) saleDetailRepository.findAll();
+        return (List<SaleDetail>) saleDetailRepository.findAllWithSaleAndProduct();
     }
 
     @Override

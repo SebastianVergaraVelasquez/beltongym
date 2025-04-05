@@ -28,7 +28,7 @@ public class MembershipImpl implements IMembership{
 
     @Override
     public List<Membership> findAll() {
-        return (List<Membership>) membershipRepository.findAll();
+        return (List<Membership>) membershipRepository.findAllWithMembershipTypeAndUser();
     }
 
     @Override

@@ -28,7 +28,7 @@ public class SupplierPurchaseImpl implements ISupplierPurchase {
 
     @Override
     public List<SupplierPurchase> findAll() {
-        return (List<SupplierPurchase>) supplierPurchaseRepository.findAll();
+        return (List<SupplierPurchase>) supplierPurchaseRepository.findAllWithSupplier();
     }
 
     @Override
