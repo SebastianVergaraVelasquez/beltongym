@@ -1,7 +1,6 @@
 package com.sebastianvv.beltongym.persistence.entities;
 
 import java.util.UUID;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,14 +13,20 @@ public class Supplier {
     @GeneratedValue
     @Column(columnDefinition = "CHAR(36)")
     private UUID id;
+
+    @Column(nullable = false)
     private String name;
-    private int phone;
+
+    @Column(length = 20, nullable = false) // Se asegura de que sea un String con un máximo de 20 caracteres
+    private String phone;
+
+    @Column(nullable = false, unique = true)
     private String email;
 
     public Supplier() {
     }
 
-    public Supplier(UUID id, String name, int phone, String email) {
+    public Supplier(UUID id, String name, String phone, String email) {
         this.id = id;
         this.name = name;
         this.phone = phone;
@@ -44,11 +49,11 @@ public class Supplier {
         this.name = name;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
