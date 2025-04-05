@@ -18,14 +18,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 
-@RestController("")
+@RestController
 @RequestMapping("/belton/user")
 public class UserController {
 
     @Autowired
     private IUser userService;
 
-    @GetMapping("path")
+    @GetMapping
     public List<User> getAll() {
         return userService.findAll();
     }
