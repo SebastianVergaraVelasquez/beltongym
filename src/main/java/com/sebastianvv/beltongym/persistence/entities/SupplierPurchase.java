@@ -1,11 +1,10 @@
 package com.sebastianvv.beltongym.persistence.entities;
 
-import java.sql.Date;
-import java.util.UUID;
+import java.time.LocalDate;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
@@ -15,31 +14,30 @@ import jakarta.persistence.Table;
 public class SupplierPurchase {
 
     @Id
-    @GeneratedValue
-    @Column(columnDefinition = "CHAR(36)")
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
     @ManyToOne
     private Supplier supplier;
 
-    private Date date;
+    private LocalDate date;
     private Double total;
 
     public SupplierPurchase() {
     }
 
-    public SupplierPurchase(UUID id, Supplier supplier, Date date, Double total) {
+    public SupplierPurchase(int id, Supplier supplier, LocalDate date, Double total) {
         this.id = id;
         this.supplier = supplier;
         this.date = date;
         this.total = total;
     }
 
-    public UUID getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -51,11 +49,11 @@ public class SupplierPurchase {
         this.supplier = supplier;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 

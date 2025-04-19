@@ -1,9 +1,7 @@
 package com.sebastianvv.beltongym.persistence.entities;
-
-import java.util.UUID;
-
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -12,20 +10,20 @@ import jakarta.persistence.Table;
 public class UserType {
 
     @Id
-    @Column(columnDefinition = "CHAR(36)")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     
-    private UUID id;
+    private int id;
 
     private String name;
 
     public UserType() {
     }
 
-    public UUID getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(int id) {
         this.id = id;
     }
 

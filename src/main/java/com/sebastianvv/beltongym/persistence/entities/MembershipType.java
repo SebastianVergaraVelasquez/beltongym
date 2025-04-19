@@ -1,8 +1,5 @@
 package com.sebastianvv.beltongym.persistence.entities;
 
-import java.util.UUID;
-
-import org.hibernate.annotations.UuidGenerator;
 
 import jakarta.persistence.*;
 
@@ -11,20 +8,19 @@ import jakarta.persistence.*;
 public class MembershipType {
 
     @Id
-    @GeneratedValue
-    @UuidGenerator
-    @Column(columnDefinition = "CHAR(36)", updatable = false, nullable = false)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(updatable = false, nullable = false)
+    private int id;
 
     private String name;
 
     public MembershipType() {}
 
-    public UUID getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(int id) {
         this.id = id;
     }
 

@@ -1,10 +1,8 @@
 package com.sebastianvv.beltongym.persistence.entities;
 
-import java.util.UUID;
-
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
@@ -14,9 +12,8 @@ import jakarta.persistence.Table;
 public class PurchaseDetail {
 
     @Id
-    @GeneratedValue
-    @Column(columnDefinition = "CHAR(36)")
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
     @ManyToOne
     private SupplierPurchase purchase;
@@ -29,18 +26,18 @@ public class PurchaseDetail {
     public PurchaseDetail() {
     }
 
-    public PurchaseDetail(UUID id, SupplierPurchase purchase, Product product, int quantity) {
+    public PurchaseDetail(int id, SupplierPurchase purchase, Product product, int quantity) {
         this.id = id;
         this.purchase = purchase;
         this.product = product;
         this.quantity = quantity;
     }
 
-    public UUID getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(int id) {
         this.id = id;
     }
 

@@ -1,10 +1,13 @@
 package com.sebastianvv.beltongym.persistence.entities;
 
 import java.sql.Date;
-import java.util.UUID;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -15,8 +18,8 @@ import jakarta.persistence.Table;
 public class User {
 
     @Id
-    @Column(columnDefinition = "CHAR(36)")
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private int document;
     private String name;
     private String lastname;
@@ -24,6 +27,7 @@ public class User {
     private String tel;
     private String email;
     @Column(name = "regis_date")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date regisDate;
     
     @ManyToOne
@@ -33,11 +37,11 @@ public class User {
     public User() {
     }
 
-    public UUID getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(int id) {
         this.id = id;
     }
 

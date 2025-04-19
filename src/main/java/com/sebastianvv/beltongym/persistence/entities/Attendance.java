@@ -1,11 +1,11 @@
 package com.sebastianvv.beltongym.persistence.entities;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
@@ -15,17 +15,18 @@ import jakarta.persistence.Table;
 public class Attendance {
 
     @Id
-    @GeneratedValue
-    @Column(columnDefinition = "CHAR(36)")
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
     @ManyToOne
     private User user;
 
     @Column(name = "entry_time", nullable = false)
+    //posible formato para agregar y deserializar, depende de cómo lo envíe desde el front
     private LocalDateTime entryTime; 
 
     @Column(name = "exit_time")
+    //posible formato para agregar y deserializar, depende de cómo lo envíe desde el front
     private LocalDateTime exitTime;
 
     private String comment;
@@ -33,7 +34,7 @@ public class Attendance {
     public Attendance() {
     }
 
-    public Attendance(UUID id, User user, LocalDateTime entryTime, LocalDateTime exitTime, String comment) {
+    public Attendance(int id, User user, LocalDateTime entryTime, LocalDateTime exitTime, String comment) {
         this.id = id;
         this.user = user;
         this.entryTime = entryTime;
@@ -41,11 +42,11 @@ public class Attendance {
         this.comment = comment;
     }
 
-    public UUID getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(int id) {
         this.id = id;
     }
 

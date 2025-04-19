@@ -1,11 +1,13 @@
 package com.sebastianvv.beltongym.persistence.entities;
 
-import java.sql.Date;
-import java.util.UUID;
+import java.time.LocalDate;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
@@ -15,9 +17,8 @@ import jakarta.persistence.Table;
 public class Membership {
 
     @Id
-    @GeneratedValue
-    @Column(columnDefinition = "CHAR(36)")
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
     @ManyToOne
     private User user;
@@ -26,17 +27,19 @@ public class Membership {
     private MembershipType membershipType;
 
     @Column(name= "start_date")
-    private Date startDate;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate startDate;
 
     @Column(name= "end_date")
-    private Date endDate;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate endDate;
 
     private String comment;
 
     public Membership() {
     }
 
-    public Membership(UUID id, User user, MembershipType membershipType, Date startDate, Date endDate, String comment) {
+    public Membership(int id, User user, MembershipType membershipType, LocalDate startDate, LocalDate endDate, String comment) {
         this.id = id;
         this.user = user;
         this.membershipType = membershipType;
@@ -45,11 +48,11 @@ public class Membership {
         this.comment = comment;
     }
 
-    public UUID getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -69,19 +72,19 @@ public class Membership {
         this.membershipType = membershipType;
     }
 
-    public Date getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
 
