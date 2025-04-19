@@ -2,7 +2,6 @@ package com.sebastianvv.beltongym.domain.services.attendance;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +21,7 @@ public class AttendanceImpl implements IAttendance {
     }
 
     @Override
-    public Optional<Attendance> findById(UUID id) {
+    public Optional<Attendance> findById(int id) {
        return attendanceRepository.findById(id);
     }
 
@@ -32,7 +31,7 @@ public class AttendanceImpl implements IAttendance {
     }
 
     @Override
-    public void deleteById(UUID id) {
+    public void deleteById(int id) {
         attendanceRepository.deleteById(id);
     }
 }

@@ -2,7 +2,6 @@ package com.sebastianvv.beltongym.domain.services.purchaseDetail;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +21,7 @@ public class PurchaseDetailImpl implements IPurchaseDetail{
     }
 
     @Override
-    public Optional<PurchaseDetail> findById(UUID id) {
+    public Optional<PurchaseDetail> findById(int id) {
        return purchaseDetailRepository.findById(id);
     }
 
@@ -32,7 +31,7 @@ public class PurchaseDetailImpl implements IPurchaseDetail{
     }
 
     @Override
-    public void deleteById(UUID id) {
+    public void deleteById(int id) {
         purchaseDetailRepository.deleteById(id);
     }
 

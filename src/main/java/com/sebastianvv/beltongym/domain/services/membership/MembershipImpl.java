@@ -2,7 +2,6 @@ package com.sebastianvv.beltongym.domain.services.membership;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +21,7 @@ public class MembershipImpl implements IMembership{
     }
 
     @Override
-    public Optional<Membership> findById(UUID id) {
+    public Optional<Membership> findById(int id) {
         return membershipRepository.findById(id);
     }
 
@@ -32,7 +31,7 @@ public class MembershipImpl implements IMembership{
     }
 
     @Override
-    public void deleteById(UUID id) {
+    public void deleteById(int id) {
        membershipRepository.deleteById(id);
     }
 

@@ -2,7 +2,6 @@ package com.sebastianvv.beltongym.domain.services.user;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +21,7 @@ public class UserImpl implements IUser {
     }
 
     @Override
-    public Optional<User> findById(UUID id) {
+    public Optional<User> findById(int id) {
         return userRepository.findById(id);
     }
 
@@ -32,7 +31,7 @@ public class UserImpl implements IUser {
     }
 
     @Override
-    public void deleteById(UUID id) {
+    public void deleteById(int id) {
         userRepository.deleteById(id);
     }
 }

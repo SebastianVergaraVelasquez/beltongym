@@ -2,7 +2,6 @@ package com.sebastianvv.beltongym.domain.services.product;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +21,7 @@ public class ProductImpl implements IProduct {
     }
 
     @Override
-    public Optional<Product> findById(UUID id) {
+    public Optional<Product> findById(int id) {
         return productRepository.findById(id);
     }
 
@@ -32,7 +31,7 @@ public class ProductImpl implements IProduct {
     }
 
     @Override
-    public void deleteById(UUID id) {
+    public void deleteById(int id) {
         productRepository.deleteById(id);
     }
 

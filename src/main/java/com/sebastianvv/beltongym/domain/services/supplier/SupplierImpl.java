@@ -2,7 +2,6 @@ package com.sebastianvv.beltongym.domain.services.supplier;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +21,7 @@ public class SupplierImpl implements ISupplier {
     }
 
     @Override
-    public Optional<Supplier> findById(UUID id) {
+    public Optional<Supplier> findById(int id) {
        return supplierRepository.findById(id);
     }
 
@@ -32,7 +31,7 @@ public class SupplierImpl implements ISupplier {
     }
 
     @Override
-    public void deleteById(UUID id) {
+    public void deleteById(int id) {
         supplierRepository.deleteById(id);
     }
 

@@ -2,7 +2,6 @@ package com.sebastianvv.beltongym.domain.services.sales;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +21,7 @@ public class SalesImpl implements ISales{
     }
 
     @Override
-    public Optional<Sales> findById(UUID id) {
+    public Optional<Sales> findById(int id) {
         return salesRepository.findById(id);
     }
 
@@ -32,7 +31,7 @@ public class SalesImpl implements ISales{
     }
 
     @Override
-    public void deleteById(UUID id) {
+    public void deleteById(int id) {
        salesRepository.deleteById(id);
     }
 
