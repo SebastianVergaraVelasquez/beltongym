@@ -7,7 +7,6 @@ import com.sebastianvv.beltongym.domain.services.purchaseDetail.IPurchaseDetail;
 import com.sebastianvv.beltongym.persistence.entities.PurchaseDetail;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/belton/purchaseDetail")
@@ -21,7 +20,7 @@ public class PurchaseDetailController {
     }
 
     @GetMapping("/{id}")
-    public PurchaseDetail getById(@PathVariable UUID id) {
+    public PurchaseDetail getById(@PathVariable int id) {
         return purchaseDetailService.findById(id).get();
     }
 
@@ -31,7 +30,7 @@ public class PurchaseDetailController {
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable UUID id) {
+    public void delete(@PathVariable int id) {
         purchaseDetailService.deleteById(id);
     }
 }

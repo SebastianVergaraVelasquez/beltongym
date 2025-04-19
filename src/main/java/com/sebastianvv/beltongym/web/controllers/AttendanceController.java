@@ -7,7 +7,6 @@ import com.sebastianvv.beltongym.domain.services.attendance.IAttendance;
 import com.sebastianvv.beltongym.persistence.entities.Attendance;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/belton/attendance")
@@ -21,7 +20,7 @@ public class AttendanceController {
     }
 
     @GetMapping("/{id}")
-    public Attendance getById(@PathVariable UUID id) {
+    public Attendance getById(@PathVariable int id) {
         return attendanceService.findById(id).get();
     }
 
@@ -31,7 +30,7 @@ public class AttendanceController {
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable UUID id) {
+    public void delete(@PathVariable int id) {
         attendanceService.deleteById(id);
     }
 }

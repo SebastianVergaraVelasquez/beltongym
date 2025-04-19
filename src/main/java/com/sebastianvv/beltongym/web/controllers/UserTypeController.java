@@ -7,7 +7,6 @@ import com.sebastianvv.beltongym.domain.services.userType.IUserType;
 import com.sebastianvv.beltongym.persistence.entities.UserType;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/belton/userType")
@@ -21,7 +20,7 @@ public class UserTypeController {
     }
 
     @GetMapping("/{id}")
-    public UserType getById(@PathVariable UUID id) {
+    public UserType getById(@PathVariable int id) {
         return userTypeService.findById(id).get();
     }
 
@@ -31,7 +30,7 @@ public class UserTypeController {
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable UUID id) {
+    public void delete(@PathVariable int id) {
         userTypeService.deleteById(id);
     }
 }

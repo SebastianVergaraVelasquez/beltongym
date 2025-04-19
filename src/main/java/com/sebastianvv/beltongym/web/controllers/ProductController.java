@@ -7,7 +7,6 @@ import com.sebastianvv.beltongym.domain.services.product.IProduct;
 import com.sebastianvv.beltongym.persistence.entities.Product;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/belton/product")
@@ -21,7 +20,7 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public Product getById(@PathVariable UUID id) {
+    public Product getById(@PathVariable int id) {
         return productService.findById(id).get();
     }
 
@@ -31,7 +30,7 @@ public class ProductController {
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable UUID id) {
+    public void delete(@PathVariable int id) {
         productService.deleteById(id);
     }
 }

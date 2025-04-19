@@ -7,7 +7,6 @@ import com.sebastianvv.beltongym.domain.services.user.IUser;
 import com.sebastianvv.beltongym.persistence.entities.User;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-
+import org.springframework.web.bind.annotation.PutMapping;
 
 @RestController
 @RequestMapping("/belton/user")
@@ -29,20 +28,26 @@ public class UserController {
     public List<User> getAll() {
         return userService.findAll();
     }
-    
+
     @GetMapping("/{id}")
-    public User getById(@PathVariable UUID id) {
+    public User getById(@PathVariable int id) {
         return userService.findById(id).get();
-        //cambiar para mejorar la validación
+        // cambiar para mejorar la validación
     }
-    
-    @PostMapping("path")
-    public User postMethodName(@RequestBody User user) {
+
+    @PostMapping
+    public User create(@RequestBody User user) {
         return userService.save(user);
     }
-    
+
+    @PutMapping("/{id}")
+    public User update(@PathVariable int id, @RequestBody User user) {
+        user.setId(id);
+        return userService.save(user);
+    }
+
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable UUID id){
+    public void delete(@PathVariable int id) {
         userService.deleteById(id);
     }
 }

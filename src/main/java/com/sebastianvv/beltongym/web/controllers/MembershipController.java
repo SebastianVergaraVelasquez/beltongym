@@ -7,7 +7,6 @@ import com.sebastianvv.beltongym.domain.services.membership.IMembership;
 import com.sebastianvv.beltongym.persistence.entities.Membership;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/belton/membership")
@@ -21,7 +20,7 @@ public class MembershipController {
     }
 
     @GetMapping("/{id}")
-    public Membership getById(@PathVariable UUID id) {
+    public Membership getById(@PathVariable int id) {
         return membershipService.findById(id).get();
     }
 
@@ -31,7 +30,7 @@ public class MembershipController {
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable UUID id) {
+    public void delete(@PathVariable int id) {
         membershipService.deleteById(id);
     }
 }

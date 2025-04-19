@@ -7,7 +7,6 @@ import com.sebastianvv.beltongym.domain.services.sales.ISales;
 import com.sebastianvv.beltongym.persistence.entities.Sales;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/belton/sales")
@@ -21,7 +20,7 @@ public class SalesController {
     }
 
     @GetMapping("/{id}")
-    public Sales getById(@PathVariable UUID id) {
+    public Sales getById(@PathVariable int id) {
         return salesService.findById(id).get();
     }
 
@@ -31,7 +30,7 @@ public class SalesController {
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable UUID id) {
+    public void delete(@PathVariable int id) {
         salesService.deleteById(id);
     }
 }
