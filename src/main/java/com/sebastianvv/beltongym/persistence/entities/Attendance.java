@@ -2,6 +2,8 @@ package com.sebastianvv.beltongym.persistence.entities;
 
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -21,12 +23,11 @@ public class Attendance {
     @ManyToOne
     private User user;
 
-    @Column(name = "entry_time", nullable = false)
-    //posible formato para agregar y deserializar, depende de cómo lo envíe desde el front
-    private LocalDateTime entryTime; 
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+    @Column(nullable = false)
+    private LocalDateTime entryTime;
 
-    @Column(name = "exit_time")
-    //posible formato para agregar y deserializar, depende de cómo lo envíe desde el front
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime exitTime;
 
     private String comment;
@@ -81,7 +82,5 @@ public class Attendance {
     public void setComment(String comment) {
         this.comment = comment;
     }
-
-    
 
 }

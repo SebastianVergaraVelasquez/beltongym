@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.sebastianvv.beltongym.domain.services.attendance.IAttendance;
 import com.sebastianvv.beltongym.persistence.entities.Attendance;
+import com.sebastianvv.beltongym.persistence.entities.User;
 
 import java.util.List;
 
@@ -27,6 +28,25 @@ public class AttendanceController {
     @PostMapping
     public Attendance save(@RequestBody Attendance attendance) {
         return attendanceService.save(attendance);
+    }
+
+    @PutMapping("/{id}")
+    public Attendance updateAttendance(@PathVariable int id, @RequestBody Attendance attendanceUpdated) {
+        Attendance existingAttendance = attendanceService.findById(id)
+                .orElseThrow(() -> new RuntimeException("Attendance not found with id: " + id));
+
+        existingAttendance.setComment(attendanceUpdated.getComment());
+        existingAttendance.setEntryTime(attendanceUpdated.getEntryTime());
+        existingAttendance.setExitTime(attendanceUpdated.getExitTime());
+
+        // Asegurarse de que el objeto User venga con su ID
+        if (attendanceUpdated.getUser() != null) {
+            User user = new User();
+            user.setId(attendanceUpdated.getUser().getId());
+            existingAttendance.setUser(user);
+        }
+
+        return attendanceService.save(existingAttendance);
     }
 
     @DeleteMapping("/{id}")
