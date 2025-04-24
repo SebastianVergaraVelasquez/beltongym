@@ -26,6 +26,11 @@ public class UserImpl implements IUser {
     }
 
     @Override
+    public Optional<User> findByDocument(int document) {
+        return userRepository.findByDocument(document);
+    }
+
+    @Override
     public List<User> findAll() {
         return (List<User>) userRepository.findAllWithUserType();
     }
