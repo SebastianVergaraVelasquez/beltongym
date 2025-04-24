@@ -24,6 +24,11 @@ public class SaleDetailController {
         return saleDetailService.findById(id).get();
     }
 
+    @GetMapping("/sale/{saleId}")
+    public List<SaleDetail> getBySaleId(@PathVariable int saleId) {
+        return saleDetailService.findBySaleId(saleId);
+    }
+
     @PostMapping
     public SaleDetail save(@RequestBody SaleDetail saleDetail) {
         return saleDetailService.save(saleDetail);

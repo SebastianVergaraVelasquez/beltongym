@@ -4,16 +4,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import com.sebastianvv.beltongym.domain.services.product.IProduct;
+
 import com.sebastianvv.beltongym.persistence.entities.Product;
 
 import java.util.List;
+
 
 @RestController
 @RequestMapping("/belton/product")
 public class ProductController {
     @Autowired
     private IProduct productService;
-
+    
     @GetMapping
     public List<Product> getAll() {
         return productService.findAll();
@@ -26,6 +28,12 @@ public class ProductController {
 
     @PostMapping
     public Product save(@RequestBody Product product) {
+        return productService.save(product);
+    }
+
+    @PutMapping("/{id}")
+    public Product put(@PathVariable int id, @RequestBody Product product) {
+        product.setId(id);
         return productService.save(product);
     }
 

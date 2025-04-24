@@ -10,4 +10,5 @@ public interface ISaleDetail {
     Optional<SaleDetail> findById(int id);
     List<SaleDetail> findAll();
     void deleteById(int id);
+    List<SaleDetail> findBySaleId(int saleId);
 }

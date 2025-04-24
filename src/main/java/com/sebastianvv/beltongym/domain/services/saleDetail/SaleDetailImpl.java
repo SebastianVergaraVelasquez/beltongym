@@ -32,7 +32,12 @@ public class SaleDetailImpl implements ISaleDetail {
 
     @Override
     public void deleteById(int id) {
-       saleDetailRepository.deleteById(id);
+        saleDetailRepository.deleteById(id);
+    }
+
+    @Override
+    public List<SaleDetail> findBySaleId(int saleId) {
+        return saleDetailRepository.findBySaleId(saleId);
     }
 
 }

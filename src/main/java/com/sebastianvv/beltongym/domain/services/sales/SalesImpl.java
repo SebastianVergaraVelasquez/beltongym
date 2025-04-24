@@ -9,8 +9,10 @@ import org.springframework.stereotype.Service;
 import com.sebastianvv.beltongym.domain.repositories.SalesRepository;
 import com.sebastianvv.beltongym.persistence.entities.Sales;
 
+import jakarta.transaction.Transactional;
+
 @Service
-public class SalesImpl implements ISales{
+public class SalesImpl implements ISales {
 
     @Autowired
     private SalesRepository salesRepository;
@@ -30,9 +32,14 @@ public class SalesImpl implements ISales{
         return (List<Sales>) salesRepository.findAllWithUser();
     }
 
-    @Override
+    @Transactional
     public void deleteById(int id) {
-       salesRepository.deleteById(id);
+        Optional<Sales> saleOpt = salesRepository.findById(id);
+        if (saleOpt.isPresent()) {
+            Sales sale = saleOpt.get();
+            sale.getSaleDetails().clear(); 
+            salesRepository.delete(sale);
+        }
     }
 
 }
