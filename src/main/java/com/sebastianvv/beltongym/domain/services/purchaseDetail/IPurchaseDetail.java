@@ -10,4 +10,5 @@ public interface IPurchaseDetail {
     Optional<PurchaseDetail> findById(int id);
     List<PurchaseDetail> findAll();
     void deleteById(int id);
+    List<PurchaseDetail> findByPurchaseId (int id);
 }

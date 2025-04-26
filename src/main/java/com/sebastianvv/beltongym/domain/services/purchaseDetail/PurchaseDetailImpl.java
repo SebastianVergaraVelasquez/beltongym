@@ -35,4 +35,9 @@ public class PurchaseDetailImpl implements IPurchaseDetail{
         purchaseDetailRepository.deleteById(id);
     }
 
+    @Override
+    public List<PurchaseDetail> findByPurchaseId(int id) {
+        return purchaseDetailRepository.findByPurchaseId(id);
+    }
+
 }
