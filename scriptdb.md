@@ -8,14 +8,14 @@ INSERT INTO user_type (id, name) VALUES
 (UUID(), 'Cliente');	
 
 -- Usuarios
-INSERT INTO user (id, document, regis_date, user_type_id, address, email, lastname, name, tel) 
-SELECT UUID(), 12345678, '2024-03-01', ut.id, 'Calle 1 #12-34', 'admin@gym.com', 'Pérez', 'Carlos', '3001234567'
+INSERT INTO user (document, regis_date, user_type_id, address, email, password, lastname, name, tel) 
+SELECT 12345678, '2024-03-01', ut.id, 'Calle 1 #12-34', 'admin@gym.com', '$2a$12$5U.3ha5W7DcrKtAslh67IuDPc7Zc4wOsV1BcAy8QwV6LPOKIg19.i', 'Pérez', 'Carlos', '3001234567'
 FROM user_type ut WHERE ut.name = 'Administrador'
 UNION ALL
-SELECT UUID(), 87654321, '2024-03-02', ut.id, 'Calle 2 #23-45', 'coach@gym.com', 'López', 'Ana', '3017654321'
+SELECT 87654321, '2024-03-02', ut.id, 'Calle 2 #23-45', 'coach@gym.com', '$2a$12$OXIERktQMEzX7wBr04Xj/.Tfy8mmnL0J6xGGfh1etj7Gyb1ywRMRa', 'López', 'Ana', '3017654321'
 FROM user_type ut WHERE ut.name = 'Entrenador'
 UNION ALL
-SELECT UUID(), 56781234, '2024-03-03', ut.id, 'Calle 3 #34-56', 'client@gym.com', 'Gómez', 'Luis', '3023456789'
+SELECT 56781234, '2024-03-03', ut.id, 'Calle 3 #34-56', 'client@gym.com', '$2a$12$UpvrIKgzJzHX9euB9mG18eYoEve37DzDM1uUo53dAorMpPF0Wg8J6', 'Gómez', 'Luis', '3023456789'
 FROM user_type ut WHERE ut.name = 'Cliente';
 
 -- Asistencia
