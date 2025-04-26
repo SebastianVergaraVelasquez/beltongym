@@ -76,3 +76,9 @@ usar la base de datos e inserciones a la base de datos. Agrega estos INSERT para
 
     ./mvnw spring-boot:run  
     Si estás en Windows, usa mvnw.cmd spring-boot:run.
+
+7. Usuarios y contraseña para probar el login:
+
+  admin@gym.com  / admin123
+  coach@gym.com  / coach123
+  client@gym,com / client123

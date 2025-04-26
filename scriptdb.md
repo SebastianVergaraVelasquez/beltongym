@@ -1,3 +1,9 @@
+Usuarios y contraseña para probar el login:
+
+admin@gym.com  / admin123
+coach@gym.com  / coach123
+client@gym,com / client123
+
 CREATE DATABASE belton_gym;
 
 use belton_gym;
