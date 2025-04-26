@@ -12,4 +12,5 @@ public interface UserRepository extends CrudRepository<User, Integer> {
     @Query("SELECT u FROM User u JOIN FETCH u.userType")
     List<User> findAllWithUserType();
     Optional<User> findByDocument(int document);
+    User findByEmail(String email);
 }

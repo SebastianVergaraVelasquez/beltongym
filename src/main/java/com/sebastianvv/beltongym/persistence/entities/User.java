@@ -26,6 +26,7 @@ public class User {
     private String address;
     private String tel;
     private String email;
+    private String password;
     @Column(name = "regis_date")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date regisDate;
@@ -91,6 +92,14 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Date getRegisDate() {

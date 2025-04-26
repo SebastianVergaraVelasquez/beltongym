@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @RestController
 @RequestMapping("/belton/user")
@@ -23,6 +24,11 @@ public class UserController {
 
     @Autowired
     private IUser userService;
+
+   
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @GetMapping
     public List<User> getAll() {
@@ -37,6 +43,7 @@ public class UserController {
 
     @PostMapping
     public User create(@RequestBody User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userService.save(user);
     }
 
